@@ -1,5 +1,5 @@
-import * as deno_imap from "jsr:@workingdevshero/deno-imap";
 import "https://deno.land/std@0.224.0/dotenv/load.ts";
+import * as deno_imap from "jsr:@workingdevshero/deno-imap";
 
 console.log("hello world ");
 
@@ -13,9 +13,14 @@ const client = new ImapClient({
   username: Deno.env.get("EMAIL_ADDRESS"),
   password: Deno.env.get("EMAIL_PASSWORD"),
 });
-
+console.log(client.username);
 // Connect and authenticate
-await client.connect();
-await client.authenticate();
-
-client.disconnect();
+try {
+  await client.connect();
+  await client.authenticate();
+  console.log("confirmation of connection");
+} catch (error) {
+  console.log("failed to auth", error.message);
+} finally {
+  client.disconnect();
+}
