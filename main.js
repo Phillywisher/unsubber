@@ -7,9 +7,9 @@ import { ImapClient } from "jsr:@workingdevshero/deno-imap";
 
 // Create a new IMAP client
 const client = new ImapClient({
-  host: "imap.example.com",
+  host: "imap-mail.outlook.com",
   port: 993,
-  tls: true,
+  tls: true, //encrption method
   username: Deno.env.get("EMAIL_ADDRESS"),
   password: Deno.env.get("EMAIL_PASSWORD"),
 });
