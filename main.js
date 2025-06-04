@@ -10,8 +10,8 @@ const client = new ImapClient({
   host: "imap.example.com",
   port: 993,
   tls: true,
-  username: "user@example.com",
-  password: "password",
+  username: Deno.env.get("EMAIL_ADDRESS"),
+  password: Deno.env.get("EMAIL_PASSWORD"),
 });
 
 // Connect and authenticate
