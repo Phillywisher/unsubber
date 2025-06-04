@@ -1,4 +1,5 @@
 import * as deno_imap from "jsr:@workingdevshero/deno-imap";
+import "https://deno.land/std@0.224.0/dotenv/load.ts";
 
 console.log("hello world ");
 
